@@ -1,19 +1,20 @@
-import React  from 'react';
-import Category from './Category';
-import FeaturedProducts from './FeaturedProducts';
-import ProductSmallSlider from './ProductSmallSlider';
-import Banner from './Banner';
+import React from "react";
+import Category from "./Category";
+import FeaturedProducts from "./FeaturedProducts";
+import ProductSmallSlider from "./ProductSmallSlider";
+import Banner from "./Banner";
+import FromTheBlog from "./FromTheBlog";
 
-
-const Homepage = ({eventBus}: any) => {
+const Homepage = ({ eventBus }: any) => {
   return (
     <>
       <Category />
-      <FeaturedProducts eventBus={eventBus}/>
+      <FeaturedProducts eventBus={eventBus} />
       <Banner />
-      <ProductSmallSlider/>
+      <ProductSmallSlider />
+      <FromTheBlog />
     </>
-  )
-}
+  );
+};
 
 export default Homepage;

@@ -15,6 +15,10 @@ const remotes = {
     url: `http://localhost:${process.env.REACT_APP_CHAT_PORT || 3006}/remoteEntry.js`,
     scope: 'chat'
   },
+  blog: {
+    url: `http://localhost:${process.env.REACT_APP_BLOG_PORT || 3002}/remoteEntry.js`,
+    scope: 'blog'
+  },
 };
 
 module.exports = { remotes };
