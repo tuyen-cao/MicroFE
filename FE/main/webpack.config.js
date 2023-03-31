@@ -13,6 +13,7 @@ const ModuleFederationPlugin = webpack.container.ModuleFederationPlugin;
 const isDevelopment = process.env.NODE_ENV !== 'production';
 const PORT = process.env.PORT || 3000;
 const ASSET_PATH = process.env.ASSET_PATH || '/';
+const BASE_URL = process.env.BASE_URL || '/';
 
 module.exports = {
   entry: './src/index',
@@ -125,6 +126,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env.ASSET_PATH': JSON.stringify(ASSET_PATH),
+      'process.env.BASE_URL': JSON.stringify(BASE_URL),
     }),
     new ESLintPlugin({
       extensions: ["js", "jsx", "ts", "tsx"],
