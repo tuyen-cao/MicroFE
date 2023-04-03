@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 
-import 'jquery-ui-bundle';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
-import 'jquery-nice-select';
-import './style/sass/style.scss';
+import "jquery-ui-bundle";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import "jquery-nice-select";
+import "./style/sass/style.scss";
 
 const App = () => {
   useEffect(() => {
@@ -16,6 +16,6 @@ const App = () => {
       <h2>Remote</h2>
     </div>
   );
-}
+};
 
 export default App;
