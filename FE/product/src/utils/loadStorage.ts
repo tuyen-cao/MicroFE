@@ -45,6 +45,7 @@ class globalStorageClass {
   }
   public addItemToCart(item: IItemCart) {
     const currentData = this.getCartData();
+
     const userId = null;
     if (!currentData) {
       const defaultData: ICartData = {
@@ -60,7 +61,7 @@ class globalStorageClass {
 
     currentData.userId = userId;
     if (currentData.items.length > 0) {
-      const findIndex = _.findIndex(currentData.items,(o: IItemCart) => o.id === item.id);
+      const findIndex = _.findIndex(currentData.items, (o: IItemCart) => o.id === item.id);
       if (findIndex !== -1) {
         const checkData = currentData.items[findIndex];
         checkData.qty += item.qty;
@@ -77,7 +78,6 @@ class globalStorageClass {
     currentData.subTotal += item.qty * item.price;
     currentData.grandTotal = currentData.subTotal;
     currentData.items = currentData.items.concat(item);
-    
     return this.setLocalStorage('mfcart', currentData);
   }
 }

@@ -42,6 +42,10 @@ export default defineComponent({
         img: item.list_img?.[0].url || require('@/assets/img/default.png')
       }
       globalStorage.addItemToCart(data);
+      
+     const cartEvent = new CustomEvent("update-cart", {});
+      document.body.dispatchEvent(cartEvent);
+    
     }
   }
 })
