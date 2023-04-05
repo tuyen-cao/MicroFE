@@ -95,6 +95,7 @@ export default defineComponent({
   methods: {
     removeItem(item: any) {
       this.cartStore.removeItem(item);
+      this.cartStore.load()
     },
 
     onChangeQty(item: IItemCart) {

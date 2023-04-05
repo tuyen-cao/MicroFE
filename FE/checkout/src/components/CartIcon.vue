@@ -2,7 +2,6 @@
   <a class="icon-container" @click="navigateToCart">
     <i class="fa fa-shopping-bag" />
     <span>{{ totalItems }}</span>
-   <!--  <p>{{ test }}</p> -->
   </a>
   
 </template>
@@ -18,15 +17,14 @@ export default defineComponent({
   setup() {
     const cartStore = useCartStore();
     const { totalItems } = storeToRefs(cartStore);
-    //const test = ref(totalItems)
-    console.log( totalItems.value)
     const test = ref(totalItems.value)
     cartStore.load();
+    console.log("update setup", globalStorage.getCartData() )
     return { cartStore, totalItems, test };
   },
   mounted() {
     document.body.addEventListener("update-cart", (e: any) => {
-     this.updateCart()
+     this.updateCart(e.detail.cartItem)
     });
  
   },
@@ -34,11 +32,13 @@ export default defineComponent({
     navigateToCart() {
       this.navigate("/shopping-cart");
     },
-    async updateCart() {
+    async updateCart(item: any) {
       await  nextTick()
-      this.test = globalStorage.getCartData()?.totalItems as number
+     this.cartStore.load();
+     if(globalStorage.getCartData()?.totalItems !== this.cartStore.totalItems) {
+      this.cartStore.addItem(item)
+     }
     }
-    
   }
 });
 </script>

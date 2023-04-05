@@ -44,6 +44,19 @@ export const useCartStore = defineStore("cart", () => {
       globalStorage.removeItemFromCart(item);
     }
   };
+  const addItem = (item: any) => {
+
+    if (!cartData.value) return;
+
+    cartData.value.items = item;
+    cartData.value.totalItems += 1;
+    cartData.value.subTotal += item.price * item.qty;
+    cartData.value.grandTotal = cartData.value.subTotal;
+
+    recalculateTotal();
+
+
+  };
   const recalculateTotal = () => {
     if (!cartData.value) return;
 
@@ -94,6 +107,7 @@ export const useCartStore = defineStore("cart", () => {
     removeCartData,
     saveOrder,
     removeItem,
+    addItem,
     recalculateTotal,
     onChangeQty,
     onUpdateLocalStorage,

@@ -43,7 +43,11 @@ export default defineComponent({
       }
       globalStorage.addItemToCart(data);
       
-     const cartEvent = new CustomEvent("update-cart", {});
+     const cartEvent = new CustomEvent("update-cart", {
+      detail: {
+        cartItem: data
+      }
+     });
       document.body.dispatchEvent(cartEvent);
     
     }
