@@ -31,15 +31,15 @@ export default defineComponent({
     methods: {
         getAllProduct() {
             const vm: any = this;
-            vm.navigate(`/shop`);
-            vm.active = '';
-            // vm.$parent?.$emit("getAllProducts")
+           /*  vm.navigate(`/shop`);*/
+            vm.active = ''; 
+            vm.$parent?.$emit("getAllProducts")
         },
         handleCategory(item: ICategory) {
             const vm: any = this;
             vm.active = item.id;
-            vm.navigate(`/shop?category=${item.id}`);
-            // vm.$parent?.$emit("getProductsByCategory", item.id)
+           /*  vm.navigate(`/shop?category=${item.id}`); */
+             vm.$parent?.$emit("getProductsByCategory", item.id)
         }
     }
 })
