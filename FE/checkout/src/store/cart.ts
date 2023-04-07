@@ -48,7 +48,8 @@ export const useCartStore = defineStore("cart", () => {
 
     if (!cartData.value) return;
 
-    cartData.value.items = item;
+    // cartData.value.items = item;
+    cartData.value.items.push(item)
     cartData.value.totalItems += 1;
     cartData.value.subTotal += item.price * item.qty;
     cartData.value.grandTotal = cartData.value.subTotal;
